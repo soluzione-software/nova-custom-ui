@@ -1,0 +1,30 @@
+{
+    "name": "soluzione-software/nova-custom-ui",
+    "description": "",
+    "require": {
+        "php": "^7.0",
+        "illuminate/support": "5.8.*|^6.0",
+        "laravel/nova": "^2.0"
+    },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://nova.laravel.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "SoluzioneSoftware\\NovaCustomUI\\": "src"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "SoluzioneSoftware\\NovaCustomUI\\ServiceProvider"
+            ]
+        }
+    },
+    "config": {
+        "sort-packages": true
+    }
+}
