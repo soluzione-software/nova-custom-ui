@@ -131,7 +131,7 @@
                         :forceDeleteAllMatchingResources="forceDeleteAllMatchingResources"
                         :restoreSelectedResources="restoreSelectedResources"
                         :restoreAllMatchingResources="restoreAllMatchingResources"
-                        @class="deleteModalOpen = false"
+                        @close="deleteModalOpen = false"
                     />
                 </div>
             </div>
