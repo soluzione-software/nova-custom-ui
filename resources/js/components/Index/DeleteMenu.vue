@@ -14,12 +14,12 @@
         :authorized-to-force-delete-any-resources="authorizedToForceDeleteAnyResources"
         :authorized-to-restore-selected-resources="authorizedToRestoreSelectedResources"
         :authorized-to-restore-any-resources="authorizedToRestoreAnyResources"
-        @deleteSelected="deleteSelectedResources"
-        @deleteAllMatching="deleteAllMatchingResources"
-        @forceDeleteSelected="forceDeleteSelectedResources"
-        @forceDeleteAllMatching="forceDeleteAllMatchingResources"
-        @restoreSelected="restoreSelectedResources"
-        @restoreAllMatching="restoreAllMatchingResources"
+        @deleteSelected="args => $emit('deleteSelected', args)"
+        @deleteAllMatching="args => $emit('deleteAllMatching', args)"
+        @forceDeleteSelected="args => $emit('forceDeleteSelected', args)"
+        @forceDeleteAllMatching="args => $emit('forceDeleteAllMatching', args)"
+        @restoreSelected="args => $emit('restoreSelected', args)"
+        @restoreAllMatching="args => $emit('restoreAllMatching', args)"
         @close="args => $emit('close', args)"
     />
 </template>
@@ -40,12 +40,6 @@ export default {
         'authorizedToForceDeleteAnyResources',
         'authorizedToRestoreSelectedResources',
         'authorizedToRestoreAnyResources',
-        'deleteSelectedResources',
-        'deleteAllMatchingResources',
-        'forceDeleteSelectedResources',
-        'forceDeleteAllMatchingResources',
-        'restoreSelectedResources',
-        'restoreAllMatchingResources',
     ],
 }
 </script>

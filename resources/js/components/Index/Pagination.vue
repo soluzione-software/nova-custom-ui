@@ -4,14 +4,14 @@
         v-if="shouldShowPagination"
         :next="hasNextPage"
         :previous="hasPreviousPage"
-        @load-more="loadMore"
-        @page="selectPage"
         :pages="totalPages"
         :page="currentPage"
         :per-page="perPage"
         :resource-count-label="resourceCountLabel"
         :current-resource-count="resources.length"
         :all-matching-resource-count="allMatchingResourceCount"
+        @load-more="args => $emit('load-more', args)"
+        @page="args => $emit('page', args)"
     >
           <span
               v-if="resourceCountLabel"
@@ -32,8 +32,6 @@ export default {
         'shouldShowPagination',
         'hasNextPage',
         'hasPreviousPage',
-        'loadMore',
-        'selectPage',
         'totalPages',
         'currentPage',
         'perPage',

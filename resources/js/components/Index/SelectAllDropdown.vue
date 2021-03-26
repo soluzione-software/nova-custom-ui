@@ -14,7 +14,7 @@
                     <li class="flex items-center mb-4">
                         <checkbox-with-label
                             :checked="selectAllChecked"
-                            @input="toggleSelectAll"
+                            @input="args => $emit('toggleSelectAll', args)"
                         >
                             {{ __('Select All') }}
                         </checkbox-with-label>
@@ -23,7 +23,7 @@
                         <checkbox-with-label
                             dusk="select-all-matching-button"
                             :checked="selectAllMatchingChecked"
-                            @input="toggleSelectAllMatching"
+                            @input="args => $emit('toggleSelectAllMatching', args)"
                         >
                             <template>
                           <span class="mr-1">
@@ -44,9 +44,7 @@
 export default {
     props: [
         'selectAllChecked',
-        'toggleSelectAll',
         'selectAllMatchingChecked',
-        'toggleSelectAllMatching',
         'allMatchingResourceCount',
     ],
 }

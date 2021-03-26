@@ -22,8 +22,9 @@
             <index-search
                 :resourceInformation="resourceInformation"
                 :viaHasOne="viaHasOne"
-                :search="search"
-                :performSearch="performSearch"
+                v-model="search"
+                @keydown.stop="performSearch"
+                @search="performSearch"
             />
 
             <div class="w-full flex items-center" :class="{ 'mb-6': !viaResource }">
@@ -64,10 +65,10 @@
                         <!-- Select All -->
                         <index-select-all-dropdown
                             :selectAllChecked="selectAllChecked"
-                            :toggleSelectAll="toggleSelectAll"
                             :selectAllMatchingChecked="selectAllMatchingChecked"
-                            :toggleSelectAllMatching="toggleSelectAllMatching"
                             :allMatchingResourceCount="allMatchingResourceCount"
+                            @toggleSelectAll="toggleSelectAll"
+                            @toggleSelectAllMatching="toggleSelectAllMatching"
                         />
                     </div>
                 </div>
@@ -87,7 +88,7 @@
                         :viaResourceId="viaResourceId"
                         :viaRelationship="viaRelationship"
                         :selectedResourcesForActionSelector="selectedResourcesForActionSelector"
-                        :getResources="getResources"
+                        @actionExecuted="getResources"
                     />
 
                     <!-- Lenses -->
@@ -105,10 +106,10 @@
                         :trashed="trashed"
                         :perPage="perPage"
                         :perPageOptions="perPageOptions"
-                        :clearSelectedFilters="clearSelectedFilters"
-                        :filterChanged="filterChanged"
-                        :trashedChanged="trashedChanged"
-                        :updatePerPageChanged="updatePerPageChanged"
+                        @clear-selected-filters="clearSelectedFilters"
+                        @filter-changed="filterChanged"
+                        @trashed-changed="trashedChanged"
+                        @per-page-changed="updatePerPageChanged"
                     />
 
                     <index-delete-menu
@@ -125,12 +126,12 @@
                         :authorizedToForceDeleteAnyResources="authorizedToForceDeleteAnyResources"
                         :authorizedToRestoreSelectedResources="authorizedToRestoreSelectedResources"
                         :authorizedToRestoreAnyResources="authorizedToRestoreAnyResources"
-                        :deleteSelectedResources="deleteSelectedResources"
-                        :deleteAllMatchingResources="deleteAllMatchingResources"
-                        :forceDeleteSelectedResources="forceDeleteSelectedResources"
-                        :forceDeleteAllMatchingResources="forceDeleteAllMatchingResources"
-                        :restoreSelectedResources="restoreSelectedResources"
-                        :restoreAllMatchingResources="restoreAllMatchingResources"
+                        @deleteSelected="deleteSelectedResources"
+                        @deleteAllMatching="deleteAllMatchingResources"
+                        @forceDeleteSelected="forceDeleteSelectedResources"
+                        @forceDeleteAllMatching="forceDeleteAllMatchingResources"
+                        @restoreSelected="restoreSelectedResources"
+                        @restoreAllMatching="restoreAllMatchingResources"
                         @close="deleteModalOpen = false"
                     />
                 </div>
@@ -185,14 +186,14 @@
                     :shouldShowPagination="shouldShowPagination"
                     :hasNextPage="hasNextPage"
                     :hasPreviousPage="hasPreviousPage"
-                    :loadMore="loadMore"
-                    :selectPage="selectPage"
                     :totalPages="totalPages"
                     :currentPage="currentPage"
                     :perPage="perPage"
                     :resourceCountLabel="resourceCountLabel"
                     :resources="resources"
                     :allMatchingResourceCount="allMatchingResourceCount"
+                    @load-more="loadMore"
+                    @page="selectPage"
                 />
             </loading-view>
         </card>

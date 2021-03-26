@@ -7,10 +7,10 @@
         :trashed="trashed"
         :per-page="perPage"
         :per-page-options="perPageOptions"
-        @clear-selected-filters="clearSelectedFilters"
-        @filter-changed="filterChanged"
-        @trashed-changed="trashedChanged"
-        @per-page-changed="updatePerPageChanged"
+        @clear-selected-filters="args => $emit('clear-selected-filters', args)"
+        @filter-changed="args => $emit('filter-changed', args)"
+        @trashed-changed="args => $emit('trashed-changed', args)"
+        @per-page-changed="args => $emit('per-page-changed', args)"
     />
 </template>
 
@@ -24,10 +24,6 @@ export default {
         'trashed',
         'perPage',
         'perPageOptions',
-        'clearSelectedFilters',
-        'filterChanged',
-        'trashedChanged',
-        'updatePerPageChanged',
     ],
 }
 </script>

@@ -14,9 +14,10 @@
             class="appearance-none form-search w-search pl-search shadow"
             :placeholder="__('Search')"
             type="search"
-            v-model="search"
-            @keydown.stop="performSearch"
-            @search="performSearch"
+            :value="value"
+            @input="({target}) => $emit('input', target.value)"
+            @keydown="args => $emit('keydown', args)"
+            @search="args => $emit('search', args)"
         />
     </div>
 </template>
@@ -26,8 +27,7 @@ export default {
     props: [
         'resourceInformation',
         'viaHasOne',
-        'search',
-        'performSearch',
+        'value',
     ],
 }
 </script>

@@ -14,7 +14,7 @@
               viaRelationship,
             }"
         :selected-resources="selectedResourcesForActionSelector"
-        @actionExecuted="getResources"
+        @actionExecuted="args => $emit('actionExecuted', args)"
     />
 </template>
 
@@ -33,7 +33,6 @@ export default {
         'viaResourceId',
         'viaRelationship',
         'selectedResourcesForActionSelector',
-        'getResources',
     ],
 }
 </script>

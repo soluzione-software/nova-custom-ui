@@ -11,6 +11,6 @@ export default {
     props: [
         'viaResource',
         'resourceName',
-    ]
+    ],
 }
 </script>
